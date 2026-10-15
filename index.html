@@ -1,24 +1,26 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Lexicon Brawl · 像素背词大乱斗</title><link rel="stylesheet" href="style.css"></head>
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Lexicon Brawl · 像素背词赛车</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <body>
 <header class="nav"><h1 id="ttl">学习</h1><span class="pill" id="lvb"></span></header>
 <main>
-<section id="v1"><div class="c" id="p1"><div class="stats"><div><b id="lv"></b><span>等级</span></div><div><b id="st"></b><span>连续打卡</span></div><div><b id="dn"></b><span>今日</span></div><div><b id="du"></b><span>待复习</span></div></div><div class="bar"><i id="xpb"></i></div><div class="mu" id="xpt"></div><div class="seg" id="snd"><button data-v="w">单词</button><button data-v="s">例句</button><button data-v="b">两者</button><button data-v="o">关闭</button></div><div class="mu s">🔊 自动发音：单词在出题时读，例句在答题后读（仅学习模式）</div><div class="seg" id="sfs"><button data-v="1">🔔 音效：开</button><button data-v="0">🔕 音效：关</button></div></div>
+<section id="v1"><div class="c" id="p1"><div class="stats"><div><b id="lv"></b><span>等级</span></div><div><b id="st"></b><span>连续打卡</span></div><div><b id="dn"></b><span>今日</span></div><div><b id="du"></b><span>待复习</span></div></div><div class="bar"><i id="xpb"></i></div><div class="mu" id="xpt"></div><details class="set"><summary>⚙️ 学习设置：发音 · 音效 · 题数 · 词库</summary><div class="seg" id="snd"><button data-v="w">单词</button><button data-v="s">例句</button><button data-v="b">两者</button><button data-v="o">关闭</button></div><div class="mu s">🔊 自动发音：单词在出题时读，例句在答题后读（仅学习模式）</div><div class="seg" id="sfs"><button data-v="1">🔔 音效：开</button><button data-v="0">🔕 音效：关</button></div><div class="row qn"><span class="mu">📚 每轮题数</span><input id="qc" type="number" inputmode="numeric" min="1" max="200" placeholder="自定义 1–200"></div><div class="seg" id="qn"><button data-v="5">5</button><button data-v="10">10</button><button data-v="20">20</button><button data-v="50">50</button></div><div class="row qn"><span class="mu">📖 词库范围（新词从这里出）</span></div><div class="seg" id="lm"><button data-v="500">前 500</button><button data-v="1000">前 1000</button><button data-v="3000">前 3000</button><button data-v="0">全部</button></div><div class="row qn"><span class="mu">🔀 新词顺序</span></div><div class="seg" id="od"><button data-v="0">词表顺序</button><button data-v="1">随机</button></div><div class="mu s">先出到期复习和新词，不够时用已学词加练（加练答对不改变复习计划）。</div></details></div>
 <div class="c" id="card"><div class="tmr" id="tmr" hidden><i></i><b id="tn" class="px"></b></div><div class="wrow"><div id="wd"></div><button class="ic" id="sp" aria-label="发音">🔊</button></div><div id="ps"></div><div id="op"></div><div id="fb" aria-live="polite"></div><div id="ex"></div><button class="btn" id="nx" hidden>继续</button></div></section>
 <section id="v2" hidden>
 <div class="c"><h2>遗忘曲线节奏</h2><div class="mu" id="nxt"></div><div class="stgs" id="stg"></div><div class="mu s">柱子下方是该阶段当前的复习间隔，按艾宾浩斯节点推进：5 分钟 → 30 分钟 → 12 小时 → 1 天 → 2 天 → 4 天 → 7 天 → 15 天。答错回到起点。</div></div>
 <div class="c"><div class="row"><h2>错题集</h2><button class="btn sm" id="pm">练习错题</button></div><div id="ml"></div></div>
 <div class="c"><h2>成就</h2><div id="bg"></div></div><button class="lnk" id="rs">重置进度</button></section>
 <section id="v3" hidden>
-<div class="c" id="jn"><h2>联机对战</h2><div class="mu">同一房间号即可开战（2–8 人，对决或组队）。答对攻击、答错反噬；连击和随机掉落道具，干扰对手背词！</div><input id="nm" maxlength="12" placeholder="你的昵称"><input id="rc" maxlength="12" placeholder="房间号（大家填一样的）"><button class="btn" id="go">加入房间</button><div class="mu" id="jm" style="text-align:center;margin-top:8px"></div></div>
+<div class="c" id="jn"><h2>联机对战</h2><div class="mu">同一房间号即可开赛（2–8 人，竞速或组队）。答对加速、答错打滑；连击和随机掉落道具，干扰对手背词，追上并甩开对手！</div><input id="nm" maxlength="12" placeholder="你的昵称"><input id="rc" maxlength="12" placeholder="房间号（大家填一样的）"><button class="btn" id="go">加入房间</button><div class="mu" id="jm" style="text-align:center;margin-top:8px"></div></div>
 <div class="c" id="lb" hidden></div>
-<div class="c" id="ar" hidden><div id="cd" class="cd" hidden></div><div class="row"><span class="px">HP</span><span class="px" id="clk"></span></div><div id="hp"></div><div id="inv"></div></div>
-<div class="c" id="rsx" hidden><h2 id="res"></h2><div class="mu" id="rs2"></div><button class="btn" id="again">再来一局</button></div>
+<div class="c" id="ar" hidden><div id="cd" class="cd" hidden></div><div class="row"><span class="px" style="font-size:10px">🏁 追逐赛</span><span class="px" id="clk" style="font-size:10px"></span></div><div class="bar"><i id="bst"></i></div><div id="hp"></div><div id="inv"></div></div>
+<div class="c" id="rsx" hidden><h2 id="res"></h2><div class="mu" id="rsl" style="margin:8px 0"></div><div class="mu" id="rs2"></div><button class="btn" id="again">再来一局</button></div>
 </section>
 </main>
 <div class="toast" id="ts" hidden></div>
-<nav class="tb"><button id="t1" class="on">学习</button><button id="t2">计划</button><button id="t3">对战</button></nav>
+<nav class="tb"><button id="t1" class="on">学习</button><button id="t2">计划</button><button id="t3">赛车</button></nav>
 <script src="words.js"></script>
 <script src="net.js"></script>
 <script src="app.js"></script>
+<script src="battle.js"></script>
+<script src="main.js"></script>
 </body></html>

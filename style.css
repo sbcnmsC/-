@@ -17,7 +17,7 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 120px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
 .stats b{display:block;font-size:16px;line-height:1.8;color:var(--ac)}.stats span{font-size:12px;color:var(--mu)}
 .bar{height:16px;background:var(--ln);padding:3px;margin:12px 0 6px}
-.bar i,.hbar i{display:block;height:100%;width:0;background-color:var(--ac);background-image:repeating-linear-gradient(90deg,transparent 0 6px,rgba(0,0,0,.35) 6px 8px);transition:width .4s steps(8)}
+.bar i{display:block;height:100%;width:0;background-color:var(--ac);background-image:repeating-linear-gradient(90deg,transparent 0 6px,rgba(0,0,0,.35) 6px 8px);transition:width .4s steps(8)}
 .wrow{display:flex;justify-content:center;align-items:center;gap:12px}
 #wd{font-size:22px;line-height:1.4;text-align:center;word-break:break-all}
 #ps{text-align:center;color:var(--mu);margin:4px 0 14px}
@@ -44,8 +44,6 @@ input{font:inherit;color:var(--tx);background:var(--ln);border:0;padding:12px;wi
 .tb button{flex:1;max-width:180px;border:0;background:var(--fill);color:var(--mu);font:15px "DotGothic16","PingFang SC",monospace;padding:10px;cursor:pointer}
 .tb button.on{background:var(--ac);color:#1a1c2c}
 .tmr{height:10px;background:var(--ln);margin-bottom:12px}.tmr i{display:block;height:100%;width:100%;background:var(--bl)}
-.tm{display:flex;gap:10px;align-items:center;margin:14px 0}.tm .sp{display:flex;min-width:30px}.tm.ko{filter:grayscale(1);opacity:.5}.hb{flex:1}
-.hbar{height:16px;background:var(--ln);padding:3px;margin-top:4px}.tm.me .hbar{outline:2px solid var(--ac)}
 .slot{display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:var(--fill);border:0;color:var(--tx);padding:8px;margin:6px 6px 0 0;font:12px "DotGothic16",monospace;cursor:pointer;box-shadow:0 -3px 0 var(--ln),0 3px 0 var(--ln),-3px 0 0 var(--ln),3px 0 0 var(--ln)}
 .seg{display:flex;gap:8px;margin:12px 0}.seg button{flex:1;border:0;padding:10px;background:var(--fill);color:var(--tx);font:inherit;cursor:pointer}.seg .on{background:var(--ac);color:#1a1c2c}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));background:var(--ln);color:#fff;padding:10px 16px;z-index:30;max-width:90%;text-align:center;box-shadow:0 0 0 3px var(--ac)}
@@ -59,6 +57,29 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-se
 .seg button{padding:12px 4px;font-size:14px}.tb button{padding:12px 6px}.slot{min-width:76px;padding:10px 8px}.toast{font-size:14px}.stgs{gap:2px}.li b{font-size:16px}}
 .tmr{position:relative;height:20px}.tmr b{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:10px;color:#fff;text-shadow:1px 1px 0 var(--ln)}.tmr.low i{background:#ef4d5a}
 .cd{font:40px "Press Start 2P",monospace;text-align:center;color:var(--ac);padding:22px 0;text-shadow:3px 3px 0 var(--ln)}
-.tm{cursor:pointer}.tm.me{cursor:default}.tm.hit{animation:shk .3s steps(4)}.tm.hit .sp{filter:brightness(2.2)}.sp svg{animation:bob 1s steps(2) infinite}
+.car svg{display:block}
 @keyframes bob{50%{transform:translateY(-2px)}}.slot:active{transform:translateY(3px)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.qn input{width:130px;margin:0;padding:8px 10px}.qn{margin-top:10px}
+/* 赛道 */
+.ln{margin:12px 0;cursor:pointer}.ln.me{cursor:default}
+.rd{position:relative;height:38px;margin-top:4px;background:color-mix(in srgb,var(--ln) 55%,var(--pn));border-top:3px solid var(--ln);border-bottom:3px solid var(--ln);overflow:hidden}
+.rd::before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1px;background:repeating-linear-gradient(90deg,#f4f4f4 0 14px,transparent 14px 36px);background-size:36px 3px;opacity:.45;animation:rl var(--d,1s) linear infinite}
+@keyframes rl{to{background-position:-36px 0}}
+.ln.me .rd{outline:2px solid var(--ac)}
+.fin{position:absolute;right:0;top:0;bottom:0;width:10px;background:repeating-conic-gradient(#f4f4f4 0 25%,#1a1c2c 0 50%) 0 0/10px 10px}
+.car{position:absolute;top:50%;left:0;margin-top:-9px;width:30px;transition:left .06s linear}
+.car.bst::before{content:"";position:absolute;right:100%;top:55%;width:16px;height:6px;background:linear-gradient(90deg,transparent,#ff9f1c,#ffd23f);animation:fl .2s steps(2) infinite}
+@keyframes fl{50%{transform:scaleX(.6);transform-origin:right}}
+.tg{font-weight:400}
+
+details.set{margin-top:10px}details.set summary{cursor:pointer;color:var(--mu);font-size:14px;list-style:none;padding:6px 0}details.set summary::-webkit-details-marker{display:none}
+/* 全屏刷题 */
+.fsb{display:none}
+.c.fs{position:fixed;inset:0;z-index:15;margin:0;padding:calc(env(safe-area-inset-top,0px) + 70px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);overflow:auto;display:flex;flex-direction:column;box-shadow:none;background:var(--bg)}
+.fs .fsb{display:flex;position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:56px;align-items:center;justify-content:space-between;padding:0 14px;background:var(--bg);border-bottom:4px solid var(--ln);z-index:2}
+.fs .wrow{margin-top:10px}.fs #wd{font-size:clamp(26px,8.5vw,40px)}
+.fs #op{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.fs #op button{min-height:64px;font-size:18px;margin:8px 0}
+.fs #nx{width:100%}
+body.fsmode{overflow:hidden}body.fsmode .tb,body.fsmode .nav{visibility:hidden}

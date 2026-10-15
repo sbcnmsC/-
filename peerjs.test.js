@@ -20,10 +20,8 @@ async function mk(name){const vc=new VirtualConsole();vc.on("jsdomError",e=>errs
  await wait(3700);
  T("all start the match together",[h,b,c].every(P=>P.ev("B.ph")==="play"));
  const q=P=>{const x=P.ev("W[B.q.c][2]");[...P.d.getElementById("op").children].find(e=>e.textContent.includes(x)).click()};
- q(b);await wait(300);
- const dmg=P=>Object.values(P.ev("B.cum")).reduce((s,x)=>s+Object.values(x.D).reduce((a,v)=>a+v,0),0);
- T("client attack is relayed to everyone (damage "+dmg(h)+")",[h,b,c].every(P=>dmg(P)>0&&dmg(P)===dmg(h)));
- T("HP bars match on all devices",JSON.stringify(h.ev("Object.values(B.T).map(t=>t.hp).sort()"))===JSON.stringify(c.ev("Object.values(B.T).map(t=>t.hp).sort()")));
+ q(b);await wait(1500);
+ T("client boost is relayed to everyone (speed above base on every screen)",[h,c].every(P=>P.ev('B.cars.find(x=>x.raw==="b").v')>10.5));
  b.ev('B.inv=["fog"];B.lock="";use(0)');await wait(300);
  T("item event reaches its target",[h,c].some(P=>P.d.getElementById("card").classList.contains("fog")||P.ev("B.fx.fog>0")));
  // host leaves
